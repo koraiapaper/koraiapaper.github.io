@@ -1,0 +1,523 @@
+/* 기본 설정 및 폰트 */
+:root {
+    /* Typography */
+    --primary-font: 'Noto Sans KR', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --base-font-size: 17px; /* 기본 폰트 크기 */
+    --base-line-height: 1.8; /* 본문 줄간격 조정 */
+
+    /* Colors */
+    --text-color: #212529; /* 기본 텍스트 */
+    --text-color-secondary: #5a6268; /* 부제목, 보조 텍스트 */
+    --background-color: #ffffff; /* 기본 배경 */
+    --sidebar-bg: #263238; /* 사이드바 배경 */
+    --sidebar-text: #e0e0e0; /* 사이드바 텍스트 */
+    --sidebar-text-active: #ffffff; /* 사이드바 활성/호버 텍스트 */
+    --accent-color: #b71c1c; /* 강조색 (차분한 레드) */
+    --border-color: #e9ecef; /* 테두리 */
+    --light-gray-bg: #f8f9fa; /* 밝은 회색 배경 */
+
+    /* Layout & Spacing */
+    --sidebar-width: 260px;
+    --content-max-width: 820px; /* 콘텐츠 최대 너비 약간 증가 */
+    --spacing-unit: 1rem; /* 17px 기준 */
+    --section-margin-bottom: calc(var(--spacing-unit) * 4); /* 68px */
+    --paragraph-margin-bottom: calc(var(--spacing-unit) * 1.5); /* 25.5px */
+
+    /* Effects */
+    --soft-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    --transition-speed: 0.25s;
+} /* <-- Closing brace was missing here */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--primary-font);
+    line-height: var(--base-line-height);
+    color: var(--text-color);
+    /* --- 배경 이미지 추가 --- */
+    background-color: var(--background-color); /* 이미지가 로드되지 않을 경우의 기본 색상 */
+    background-repeat: repeat; /* 이미지를 바둑판식으로 반복 */
+    background-attachment: fixed; /* 스크롤해도 배경 이미지는 고정 (선택 사항) */
+    /* ---------------------- */
+    overflow-x: hidden;
+    position: relative; /* ::after 요소 배치 기준 */
+    z-index: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- 사이드바 (Desktop) --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: calc(var(--spacing-unit) * 1.8) calc(var(--spacing-unit) * 1.2); /* 상하 좌우 패딩 조정 */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed) ease, width var(--transition-speed) ease, padding var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    margin-bottom: calc(var(--spacing-unit) * 1.8);
+    text-align: center;
+    padding-bottom: calc(var(--spacing-unit) * 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* style.css */
+
+/* 부모 리스트(ol)의 각 항목(li) 아래 여백 추가 */
+ol.main-promises > li {
+    margin-bottom: 1.5em; /* 주 항목 간 간격 */
+}
+
+/* 중첩된 부연 설명 목록(ul) 스타일 */
+ul.details-list {
+    list-style: none;        /* 기본 불릿(점) 제거 */
+    padding-left: 0;         /* 기본 왼쪽 패딩(들여쓰기) 제거 */
+    margin-top: 0.8em;       /* 주 항목 텍스트와 부연 설명 목록 사이 간격 */
+    margin-bottom: 0;        /* 아래쪽 마진 초기화 */
+}
+
+/* 부연 설명 목록의 각 항목(li) 스타일 */
+ul.details-list > li {
+    font-size: 0.9em;        /* 주 항목보다 약간 작은 폰트 크기 */
+    color: var(--text-color-secondary); /* 약간 흐린 색상 */
+    line-height: 1.6;        /* 줄 간격 조정 */
+    margin-bottom: 0.5em;    /* 부연 설명 항목 간 간격 */
+    padding-left: 1.4em;     /* '-' 표시를 위한 공간 확보 및 들여쓰기 효과 */
+    position: relative;      /* ::before 가상 요소 위치 기준 */
+}
+
+/* 부연 설명 항목 앞에 '-' 또는 다른 기호 추가 */
+ul.details-list > li::before {
+    content: "-";            /* 원하는 기호 (예: '•', '>', '※' 등) */
+    position: absolute;
+    left: 0;
+    top: 0; /* 필요시 미세 조정 (예: 0.1em) */
+    color: var(--text-color-secondary); /* 기호 색상 */
+    /* font-weight: bold; */ /* 기호 굵게 (선택 사항) */
+}
+
+/* (기존 CSS 스타일은 그대로 유지) */
+
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.7em; /* 로고 크기 조정 */
+    color: var(--sidebar-text-active);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.table-of-contents {
+    list-style: none;
+    margin-bottom: auto;
+}
+
+.table-of-contents li {
+    margin-bottom: calc(var(--spacing-unit) * 0.6);
+}
+
+.table-of-contents a {
+    text-decoration: none;
+    color: var(--sidebar-text);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color var(--transition-speed) ease,
+                padding-left var(--transition-speed) ease,
+                border-color var(--transition-speed) ease,
+                background-color var(--transition-speed) ease;
+    display: block;
+    padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+    border-left: 3px solid transparent;
+    border-radius: 3px;
+}
+
+.table-of-contents a:hover {
+    color: var(--sidebar-text-active);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding-left: calc(var(--spacing-unit) + 3px);
+    border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.table-of-contents a.active {
+    font-weight: 600;
+    color: var(--sidebar-text-active);
+    border-left: 3px solid var(--accent-color);
+    background-color: transparent; /* 활성 시 배경 제거 */
+    padding-left: var(--spacing-unit); /* 활성 시 패딩 원래대로 */
+}
+
+.sidebar-footer {
+    margin-top: calc(var(--spacing-unit) * 2);
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--text-color-secondary);
+    opacity: 0.6;
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- 메인 콘텐츠 --- */
+.content {
+    flex: 1;
+    /* 데스크탑 콘텐츠 패딩: 상하 충분히, 좌우 적당히 */
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4); /* 51px 68px */
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+/* --- 메인 헤더 (Impactful) --- */
+.main-header {
+    margin-bottom: calc(var(--section-margin-bottom) * 1.2);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: calc(var(--spacing-unit) * 2.5);
+    text-align: center;
+}
+
+.main-header h1 {
+    font-family: var(--heading-font);
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    letter-spacing: -0.02em;
+    text-rendering: optimizeLegibility;
+}
+
+.main-header .subtitle {
+    font-family: var(--primary-font);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    margin-bottom: calc(var(--spacing-unit) * 1.75);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.01em;
+}
+
+.main-header .date {
+    font-family: var(--primary-font);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: block;
+}
+
+/* --- 본문 섹션 스타일 --- */
+.content-section {
+    margin-bottom: var(--section-margin-bottom);
+    /* 스크롤 애니메이션 */
+    opacity: 0;
+    transform: translateY(25px); /* 약간 줄임 */
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section h2 {
+    font-family: var(--heading-font);
+    font-size: 2.3em; /* 약간 크게 */
+    margin-bottom: 30px; /* 제목 아래 간격 증가 */
+    padding-bottom: 15px;
+    /* border-bottom: 2px solid var(--accent-color); /* 강조색으로 변경 및 두께 증가 */
+    /* 좀 더 모던한 구분선 */
+    position: relative;
+    color: #222;
+}
+
+/* 제목 아래 언더라인 효과 */
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 50%; /* 짧은 선 */
+    height: 3px;
+    background-color: var(--accent-color);
+    margin-top: 15px; /* 제목과의 간격 */
+    /* 중앙 정렬하려면 아래 주석 해제 */
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.content-section p {
+    margin-bottom: var(--paragraph-margin-bottom);
+    font-size: 1rem;
+    color: var(--text-color);
+    text-align: left;
+    /* text-justify: inter-word; */ /* 필요시 양쪽 정렬 */
+}
+
+/* 본문 내 링크 */
+.content-section a { /* content 내부 링크만 스타일 지정 */
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease, border-bottom var(--transition-speed) ease;
+    border-bottom: 1px solid rgba(var(--accent-color), 0.3); /* 흐린 밑줄 기본 */
+    padding-bottom: 1px;
+}
+
+.content-section a:hover {
+    color: darken(var(--accent-color), 10%);
+    border-bottom: 1px solid currentColor; /* 호버 시 진한 밑줄 */
+}
+
+/* 인용문 스타일 */
+blockquote {
+    margin: calc(var(--spacing-unit) * 2.2) 0;
+    padding: calc(var(--spacing-unit) * 1.3) calc(var(--spacing-unit) * 1.8);
+    border-left: 4px solid var(--accent-color);
+    /* background-color: var(--light-gray-bg); */
+    border-radius: 4px;
+    font-style: normal;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
+    box-shadow: var(--soft-shadow);
+    /* 애니메이션 */
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: 60px;
+    transition: opacity 0.45s 0.1s ease-out, transform 0.45s 0.1s ease-out, background-color var(--transition-speed), border-color var(--transition-speed);
+}
+.is-visible blockquote {
+    opacity: 1;
+    transform: translateY(0);
+}
+blockquote p {
+    margin-bottom: var(--spacing-unit);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* 목록 스타일 */
+ul, ol {
+    margin-bottom: var(--paragraph-margin-bottom);
+    padding-left: calc(var(--spacing-unit) * 1.7); /* 들여쓰기 조정 */
+}
+li {
+    margin-bottom: calc(var(--spacing-unit) * 0.7);
+    padding-left: calc(var(--spacing-unit) * 0.4);
+}
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+
+/* 서명 부분 스타일 */
+.signatures {
+    margin-top: var(--section-margin-bottom);
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+    text-align: right;
+}
+.signatures strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* --- 반응형 디자인 --- */
+
+/* 태블릿 ~ 작은 데스크탑 */
+@media (max-width: 1024px) {
+    :root {
+        --base-font-size: 16px; /* 기본 폰트 약간 줄임 */
+    }
+    .sidebar {
+        width: 240px; /* 사이드바 약간 좁게 */
+    }
+    .content {
+        /* 태블릿 콘텐츠 패딩: 좌우 약간 줄임 */
+        padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 3);
+        max-width: none; /* 최대 너비 제한 해제 또는 비율로 조정 */
+        margin: 0 2%; /* 좌우 여백 추가 */
+    }
+    .main-header h1 {
+        font-size: 3.5rem;
+    }
+    .main-header .subtitle {
+        font-size: 1.2rem;
+    }
+    .content-section h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* 모바일 (Sidebar가 상단으로 이동) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* 세로 배치 */
+    }
+
+    .sidebar {
+        width: 100%; /* 전체 너비 */
+        height: auto; /* 내용에 따라 높이 자동 */
+        position: static; /* 고정 해제 */
+        padding: var(--spacing-unit); /* 모바일 패딩 */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color); /* 하단 구분선 */
+        box-shadow: none;
+        overflow-y: visible; /* 스크롤 필요 없음 */
+    }
+
+    .sidebar-header {
+        margin-bottom: var(--spacing-unit);
+        padding-bottom: var(--spacing-unit);
+        text-align: left; /* 로고 왼쪽 정렬 */
+        border-bottom: none; /* 헤더 아래 구분선 제거 */
+    }
+    .logo {
+        font-size: 1.5em; /* 모바일 로고 크기 */
+    }
+
+    .table-of-contents {
+        display: flex; /* 가로 배치 */
+        flex-wrap: wrap; /* 줄 바꿈 허용 */
+        justify-content: flex-start; /* 왼쪽 정렬 */
+        padding-left: 0; /* 기본 패딩 제거 */
+        margin-bottom: 0; /* 하단 여백 제거 */
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* 링크 목록 위에 구분선 */
+        padding-top: calc(var(--spacing-unit) * 0.8);
+    }
+    .table-of-contents li {
+        margin: calc(var(--spacing-unit)*0.2) calc(var(--spacing-unit)*0.6) calc(var(--spacing-unit)*0.2) 0; /* 링크 간 간격 조정 */
+    }
+    .table-of-contents a {
+        border-left: none; /* 왼쪽 보더 제거 */
+        border-bottom: 2px solid transparent; /* 하단 보더로 활성 상태 표시 준비 */
+        padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 0.8); /* 모바일 링크 패딩 */
+        border-radius: 4px;
+        font-size: 0.85rem; /* 모바일 링크 폰트 크기 */
+        background-color: transparent; /* 기본 배경 투명 */
+    }
+    .table-of-contents a:hover {
+        padding-left: calc(var(--spacing-unit) * 0.8); /* 호버 시 패딩 변화 없음 */
+        border-left: none;
+        border-bottom-color: rgba(var(--accent-color), 0.5); /* 호버 시 흐린 하단 보더 */
+        background-color: rgba(255, 255, 255, 0.05); /* 약간의 배경 변화 */
+        color: var(--sidebar-text-active);
+    }
+    .table-of-contents a.active {
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color); /* 활성 시 하단 보더 */
+        font-weight: 600;
+        color: var(--accent-color); /* 활성 시 텍스트 색상 */
+        background-color: transparent; /* 활성 시 배경 제거 */
+        padding-left: calc(var(--spacing-unit) * 0.8); /* 활성 시 패딩 변화 없음 */
+    }
+
+    .sidebar-footer {
+        display: none; /* 모바일에서 푸터 숨기기 */
+    }
+
+    .content {
+        /* 모바일 콘텐츠 패딩: 상하 줄이고, 좌우 확보 */
+        padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+        max-width: 100%; /* 최대 너비 제한 해제 */
+        margin: 0; /* 좌우 마진 제거 */
+    }
+
+    .main-header {
+        padding-bottom: calc(var(--spacing-unit) * 2);
+        margin-bottom: calc(var(--section-margin-bottom) * 0.8); /* 모바일 헤더 아래 여백 줄임 */
+    }
+    .main-header h1 {
+        font-size: 2.6rem; /* 모바일 제목 크기 */
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+    }
+    .main-header .subtitle {
+        font-size: 1.05rem; /* 모바일 부제목 크기 */
+        margin-bottom: calc(var(--spacing-unit) * 1.5);
+        max-width: 95%;
+    }
+    .main-header .date {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .content-section h2 {
+        font-size: 1.7rem; /* 모바일 본문 제목 */
+        margin-bottom: calc(var(--spacing-unit) * 1.5);
+    }
+    .content-section p {
+        font-size: 0.95rem; /* 모바일 본문 텍스트 */
+        line-height: 1.75; /* 모바일 가독성 위한 줄간격 */
+    }
+    blockquote {
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.25);
+    }
+}
+
+/* 아주 작은 화면 대응 (선택 사항) */
+@media (max-width: 480px) {
+    :root {
+        --base-font-size: 15px; /* 더 작은 화면에서 폰트 살짝 줄임 */
+    }
+     .main-header h1 {
+        font-size: 2.2rem;
+    }
+     .main-header .subtitle {
+        font-size: 1rem;
+    }
+     .content-section h2 {
+        font-size: 1.5rem;
+    }
+    .content {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 0.8); /* 더 작은 화면 패딩 */
+    }
+}
+
+
+/* CTA 배너 텍스트 스타일 (필요시 여기에 추가/수정) */
+.cta-banner-text {
+    /* 예시: 이 스타일 가이드에 맞게 조정 */
+    font-size: 1.05rem; /* rem 단위 사용 */
+    font-weight: 400;
+    color: var(--text-color-secondary); /* 배경색에 따라 조정 필요 */
+    background-color: var(--light-gray-bg); /* 예시 배경 */
+    padding: calc(var(--spacing-unit)*1.5) var(--spacing-unit);
+    border-radius: 4px;
+    text-align: center;
+    margin: calc(var(--spacing-unit)*2) auto;
+    max-width: 90%;
+    line-height: 1.7;
+    /* 애니메이션 */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s 0.1s ease-out, transform 0.5s 0.1s ease-out;
+}
+/* .is-visible .cta-banner-text { opacity: 1; transform: translateY(0); } */
+
