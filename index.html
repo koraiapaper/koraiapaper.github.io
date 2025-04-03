@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한국인공지능협회 | 대한민국 AI 선도국가 10대 공약 제안</title>
     <meta name="description" content=" 대한민국 AI 선도국가 도약을 위한 10대 공약을 제안합니다. 연 100조 투자 등 국가 경쟁력 강화를 위한 구체적 전략을 확인하세요.">
-    <meta property="og:description" content=" 대한민국 AI 선도국가 도약을 위한 10대 공약을 제안합니다. 연 100조 투자 등 국가 경쟁력 강화를 위한 구체적 전략을 확인하세요.">
+    <meta property="og:description"
+        content=" 대한민국 AI 선도국가 도약을 위한 10대 공약을 제안합니다. 연 100조 투자 등 국가 경쟁력 강화를 위한 구체적 전략을 확인하세요.">
     <meta property="og:site_name" content="한국인공지능협회">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/img/ogimage.png">
@@ -29,6 +30,62 @@
             display: block;
             float: right;
         }
+
+        /* 서명하기 버튼 스타일 */
+        /* 강조된 서명하기 버튼 스타일 */
+        .sign-button-container {
+            position: static;
+            margin: 40px auto;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .sign-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #797c7f, #005469);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sign-button:before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 53px;
+            background: linear-gradient(135deg, #797c7f, #005469);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
     </style>
 </head>
 
@@ -37,7 +94,9 @@
         <nav class="sidebar">
             <div class="sidebar-header">
                 <!-- 로고나 작은 제목을 넣을 수 있습니다 -->
-                <h2 class="logo">KORAIA</h2>
+                <a href="https://koraia.org" target="_blank">
+                    <h2 class="logo">KORAIA</h2>
+                </a>
             </div>
             <ul class="table-of-contents">
                 <li><a href="#introduction" class="nav-link active">제안개요</a></li>
@@ -49,7 +108,13 @@
             </ul>
             <div class="sidebar-footer">
                 <!-- SNS 링크나 기타 정보를 넣을 수 있습니다 -->
-                 <a style="color: white; text-decoration: none;" href="https://koraia.org">KORAIA</a>
+                <div class="sign-button-container">
+                    <a href="https://forms.gle/PAMUNneszPKVXZLU7" target="_blank" id="signButton" class="sign-button">
+                        <span class="sign-icon"><i class="fas fa-pen-nib"></i></span>
+                        <span class="sign-text">&nbsp;지지 서명하기</span>
+                    </a>
+                </div>
+                <a style="color: white; text-decoration: none;" href="https://koraia.org">KORAIA</a>
                 <p>© 2025 한국인공지능협회 <br>All rights reserved.</p>
             </div>
         </nav>
@@ -58,11 +123,16 @@
             <header class="main-header">
                 <h1>한국인공지능협회 의견서</h1>
                 <p class="subtitle">대한민국 인공지능 선도국가 실현을 위한 10대 공약제안</p>
-                <p class="date">2025년 4월 2일</p>
+                <p class="date">2025년 4월 3일</p>
             </header>
 
 
+
+
             <img src="img/10th.png" style="width: 100%;" alt="포스터"><br><br>
+
+            <!-- 서명하기 버튼 추가 -->
+
 
             <section id="introduction" class="content-section">
                 <h2>제안개요</h2>
@@ -609,7 +679,8 @@
                 <h2>대한민국 AI정책 실행 타당성 보고서</h2>
                 <!-- 보고서 다운로드 버튼 -->
                 <div class="download-area">
-                    <a href="Korea_AI_Policy_Feasibility_Report.pdf" download="대한민국_AI정책_실행_타당성_보고서.pdf" class="download-button">
+                    <a href="Korea_AI_Policy_Feasibility_Report.pdf" download="대한민국_AI정책_실행_타당성_보고서.pdf"
+                        class="download-button">
                         <i class="fas fa-file-pdf"></i> 보고서 전체 보기 (PDF 다운로드)
                     </a>
                 </div>
@@ -619,6 +690,7 @@
                     <img src="img/sign.png" alt="sign" class="signature-image">
                 </div>
             </section>
+
         </main>
     </div>
 
