@@ -23,6 +23,34 @@
     <!-- 만약 다른 고급스러운 폰트를 원하시면 여기에 추가하세요 (예: Merriweather, Cormorant Garamond 등) -->
 
     <style>
+            .modern-support-button {
+        display: inline-block; /* 버튼처럼 보이게 설정 */
+        padding: 15px 30px; /* 내부 여백 */
+        background-color: #4a90e2; /* 모던한 파란색 계열 */
+        color: white; /* 텍스트 색상 */
+        font-size: 18px; /* 글자 크기 */
+        font-weight: bold; /* 글자 굵기 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+        text-decoration: none; /* 밑줄 제거 */
+        border: none; /* 테두리 없음 */
+        border-radius: 8px; /* 모서리 둥글게 */
+        cursor: pointer; /* 마우스 오버 시 커서 변경 */
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    }
+
+    .modern-support-button:hover {
+        background-color: #357ABD; /* 마우스 오버 시 배경색 변경 */
+        transform: translateY(-2px); /* 살짝 위로 이동하는 효과 */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 마우스 오버 시 그림자 강조 */
+    }
+
+    .modern-support-button:active {
+        background-color: #2A6496; /* 클릭 시 배경색 변경 */
+        transform: translateY(0); /* 원래 위치로 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 클릭 시 그림자 약하게 */
+    }
+        
         .signature-image {
             width: 100%;
             max-width: 500px;
@@ -122,7 +150,7 @@
                 <li><a href="#section3" class="nav-link">10대 핵심 공약 요약</a></li>
                 <li><a href="#section4" class="nav-link">대한민국 인공지능 선도국가 실현 10대 공약</a></li>
                 <li><a href="#conclusion" class="nav-link">대한민국 AI정책 실행 타당성 보고서</a></li>
-                <li><a href="https://forms.gle/9bnxyfKN7SUqjsEq6" target="_blank">의견수렴 접수창구</a></li>
+                <li><a href="https://forms.gle/9bnxyfKN7SUqjsEq6" target="_blank"><i class="fa-solid fa-comment"></i>&nbsp;의견수렴 접수창구</a></li>
             </ul>
             <div class="sidebar-footer">
                 <!-- SNS 링크나 기타 정보를 넣을 수 있습니다 -->
@@ -702,8 +730,16 @@
                         <i class="fas fa-file-pdf"></i> 보고서 전체 보기 (PDF 다운로드)
                     </a>
                 </div>
+
+                
                 <br>
+                <div class="support-signature-area" style="text-align: center; margin-top: 30px;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGAqiYAT6tuBEpIlIk97wgTpq3GdX-qTfWRBwjxNYB2_XlGA/viewform?usp=send_form" class="modern-support-button">
+        지지 서명하러가기
+    </a>
+</div>
                 <br>
+                
                 <div class="signatures">
                     <img src="img/sign.png" alt="sign" class="signature-image">
                 </div>
