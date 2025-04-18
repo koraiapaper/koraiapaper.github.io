@@ -70,7 +70,7 @@ body {
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow-y: auto;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(0,0,0,0.1);
