@@ -19,7 +19,7 @@
 
     /* Layout & Spacing */
     --sidebar-width: 260px;
-    --content-max-width: 820px; /* 콘텐츠 최대 너비 약간 증가 */
+    --content-max-width: 860px; /* 콘텐츠 최대 너비 약간 증가 */
     --spacing-unit: 1rem; /* 17px 기준 */
     --section-margin-bottom: calc(var(--spacing-unit) * 4); /* 68px */
     --paragraph-margin-bottom: calc(var(--spacing-unit) * 1.5); /* 25.5px */
